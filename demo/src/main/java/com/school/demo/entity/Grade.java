@@ -1,19 +1,19 @@
 package com.school.demo.entity;
 
 import com.school.demo.entity.subjectenum.Subject;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Getter
-@NoArgsConstructor
+@Data
 @Entity
 public class Grade {
     @Id
-    @GeneratedValue
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private int value;
     private Subject subject;
     private LocalDate date;
@@ -21,20 +21,4 @@ public class Grade {
     @JoinColumn(name="student_id")
     private Student student;
 
-    public Grade(int value, Subject subject, LocalDate date, Student student) {
-        this.value = value;
-        this.subject = subject;
-        this.date = date;
-        this.student = student;
-    }
-
-    @Override
-    public String toString() {
-        return "Grade{" +
-                "id=" + id +
-                ", value=" + value +
-                ", subject=" + subject +
-                ", date=" + date +
-                '}';
-    }
 }

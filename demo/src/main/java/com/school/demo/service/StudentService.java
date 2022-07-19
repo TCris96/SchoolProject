@@ -5,6 +5,7 @@ import com.school.demo.entity.Grade;
 import com.school.demo.entity.Student;
 import com.school.demo.exception.StudentDatabaseEmpty;
 import com.school.demo.repository.StudentRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +16,11 @@ import java.util.Objects;
 import static java.util.stream.Collectors.*;
 
 @Service
+@AllArgsConstructor
 public class StudentService {
-    @Autowired
+
     private StudentRepository studentRepository;
+    private StudentMapper studentMapper;
 
     public void insertOrUpdate(Student student) {
         studentRepository.save(student);
@@ -45,24 +48,24 @@ public class StudentService {
         }
     }
 
-    public void displayStudentsSituation() {
-        studentRepository.findAll()
-                .forEach(student -> {
-                    if (student.getGrades().size() < 3) {
-                        System.out.println("Incomplete situation for student with id " + student.getId());
-                    } else {
-                        System.out.print("Student: " + student.getFirstName() + " " + student.getLastName());
-                        getStudentGrades(student.getId()).entrySet()
-                                .forEach(entry -> System.out.println("Subject: " + entry.getKey() + ": " + getGrades(entry.getValue())));
-                    }
-                });
-    }
+//    public void displayStudentsSituation() {
+//        studentRepository.findAll()
+//                .forEach(student -> {
+//                    if (student.getGrades().size() < 3) {
+//                        System.out.println("Incomplete situation for student with id " + student.getId());
+//                    } else {
+//                        System.out.print("Student: " + student.getFirstName() + " " + student.getLastName());
+//                        getStudentGrades(student.getId()).entrySet()
+//                                .forEach(entry -> System.out.println("Subject: " + entry.getKey() + ": " + getGrades(entry.getValue())));
+//                    }
+//                });
+//    }
 
-    private Map<Subject, List<Grade>> getStudentGrades(int studentId) {
-        return studentRepository.findById(studentId).get().getGrades().stream()
-                .collect(groupingBy(Grade::getSubject));
-
-    }
+//    private Map<Subject, List<Grade>> getStudentGrades(Long studentId) {
+//        return studentRepository.findById(studentId).get().getGrades().stream()
+//                .collect(groupingBy(Grade::getSubject));
+//
+//    }
 
     private List<Integer> getGrades(List<Grade> values) {
         return values.stream()

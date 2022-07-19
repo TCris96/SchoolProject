@@ -6,6 +6,7 @@ import com.school.demo.entity.Grade;
 import com.school.demo.entity.Student;
 import com.school.demo.entity.Teacher;
 import com.school.demo.repository.TeacherRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,12 +14,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class TeacherService {
-    @Autowired
+
     private TeacherRepository teacherRepository;
-    @Autowired
+    private TeacherMapper teacherMapper;
+
     private ClassroomService classroomService;
-    @Autowired
+
     private StudentService studentService;
 
     public void insert(Teacher teacher) {

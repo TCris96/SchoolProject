@@ -9,16 +9,13 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Person {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    private int id;
     private String firstName;
     private String lastName;
     private int age;
+
+
     @OneToOne
     @JoinColumn(name = "address_id")
     private Address address;
@@ -33,7 +30,6 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "id=" + id +
                 ", FirstName='" + firstName + '\'' +
                 ", LastName='" + lastName + '\'' +
                 ", age=" + age +

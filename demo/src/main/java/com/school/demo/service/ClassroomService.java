@@ -4,15 +4,18 @@ import com.school.demo.entity.subjectenum.Subject;
 import com.school.demo.entity.Classroom;
 import com.school.demo.exception.ClassroomNotFoundException;
 import com.school.demo.repository.ClassroomRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class ClassroomService {
-    @Autowired
+
     private ClassroomRepository classroomRepository;
+    private ClassroomMapper classroomMapper;
 
     public void insert(Classroom classroom) {
         classroomRepository.save(classroom);

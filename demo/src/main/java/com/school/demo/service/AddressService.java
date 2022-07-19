@@ -2,6 +2,7 @@ package com.school.demo.service;
 
 import com.school.demo.entity.Address;
 import com.school.demo.repository.AddressRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,9 +11,11 @@ import java.util.List;
 import static java.util.Objects.nonNull;
 
 @Service
+@AllArgsConstructor
 public class AddressService {
-    @Autowired
+
     private AddressRepository addressRepository;
+    private AddressMapper addressMapper;
 
     public void add(Address address) {
          addressRepository.save(address);

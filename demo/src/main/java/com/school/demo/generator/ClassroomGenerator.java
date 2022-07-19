@@ -31,7 +31,7 @@ public class ClassroomGenerator {
         addressService.add(address1);
         Teacher teacher = new Teacher("Popescu", "Ion", 40,address1);
         teacherService.insert(teacher);
-        Classroom chemistryClass = new Classroom(Subject.CHEMISTRY,teacher);
+        Classroom chemistryClass = new Classroom(teacher);
 
 
         List<Student> students = new ArrayList<>();

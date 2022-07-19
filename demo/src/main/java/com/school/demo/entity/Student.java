@@ -1,5 +1,6 @@
 package com.school.demo.entity;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -7,11 +8,15 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.List;
 
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 @Entity
 public class Student extends Person {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private Long cnp;
 
     @OneToMany(mappedBy = "student")
     private List<Grade> grades;
@@ -20,14 +25,4 @@ public class Student extends Person {
     @JoinColumn(name = "classroom_id")
     private Classroom classroom;
 
-    public Student(String firstName, String lastName, int age, Address address) {
-        super(firstName, lastName, age, address);
-    }
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" +
-                "} " + super.toString();
-    }
 }
