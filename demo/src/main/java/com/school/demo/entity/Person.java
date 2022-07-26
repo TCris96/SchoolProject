@@ -1,14 +1,13 @@
 package com.school.demo.entity;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 public class Person {
 
     private String firstName;
@@ -20,20 +19,5 @@ public class Person {
     @JoinColumn(name = "address_id")
     private Address address;
 
-    public Person(String firstName, String lastName, int age, Address address) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.address = address;
-    }
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                ", FirstName='" + firstName + '\'' +
-                ", LastName='" + lastName + '\'' +
-                ", age=" + age +
-                ", address=" + address +
-                '}';
-    }
 }

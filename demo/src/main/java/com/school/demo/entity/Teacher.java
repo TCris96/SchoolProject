@@ -19,5 +19,9 @@ public class Teacher extends Person {
     @JoinColumn(name = "classroom_id")
     private Classroom classroom;
 
+    @ManyToOne
+    @JoinColumn(name = "subject_id")
+    private Subject subject;
+
 
 }
