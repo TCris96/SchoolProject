@@ -1,22 +1,20 @@
 package com.school.demo.entity;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Data
 @Entity
-public class Student extends Person {
+public class Student  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "student_id",nullable = false,updatable = false)
     private Long id;
 
-    private Long cnp;
+    private String cnp;
 
     @OneToMany(mappedBy = "student")
     private List<Grade> grades;
@@ -24,5 +22,9 @@ public class Student extends Person {
     @ManyToOne
     @JoinColumn(name = "classroom_id")
     private Classroom classroom;
+
+    @OneToOne
+    @JoinColumn
+    private Person person;
 
 }

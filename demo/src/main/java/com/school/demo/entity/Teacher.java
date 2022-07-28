@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-public class Teacher extends Person {
+public class Teacher {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +22,10 @@ public class Teacher extends Person {
     @ManyToOne
     @JoinColumn(name = "subject_id")
     private Subject subject;
+
+    @OneToOne
+    @JoinColumn
+    private Person person;
 
 
 }

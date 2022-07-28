@@ -7,11 +7,12 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class StudentDto {
+public class StudentDto{
 
     private Long id;
-    private Long cnp;
-    private List<Grade> grades;
-    private Classroom classroom;
+    private String cnp;
+    private List<GradeDto> grades;
+    private ClassroomDto classroom;
+    private PersonDto person;
 
 }

@@ -8,5 +8,6 @@ public class TeacherDto {
 
     private Long id;
 
-    private Classroom classroom;
+    private ClassroomDto classroom;
+    private PersonDto person;
 }
