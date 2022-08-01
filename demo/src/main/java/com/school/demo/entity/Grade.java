@@ -17,17 +17,16 @@ public class Grade {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "value")
     private int value;
 
-    @ManyToOne
-    @JoinColumn(name = "subject_id",insertable = false, updatable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "subject_id")
 
     private Subject subject;
 
     private LocalDate date;
-    @ManyToOne
-    @JoinColumn(name="student_id",insertable = false, updatable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="student_id")
     private Student student;
 
 }

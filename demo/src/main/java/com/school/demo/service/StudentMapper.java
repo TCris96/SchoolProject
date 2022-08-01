@@ -11,12 +11,11 @@ public class StudentMapper implements Mapper<Student, StudentDto> {
         StudentDto result = new StudentDto();
         result.setId(student.getId());
         result.setCnp(student.getCnp());
-//        result.setClassroom(student.getClassroom());
-//        result.setGrades(student.getGrades());
-//        result.setAddress(student.getAddress());
-//        result.setAge(student.getAge());
-//        result.setFirstName(student.getFirstName());
-//        result.setLastName(student.getLastName());
+        result.setLastName(student.getPerson().getLastName());
+        result.setFirstName(student.getPerson().getFirstName());
+        result.setAge(student.getPerson().getAge());
+        result.setAddressId(student.getPerson().getAddress().getId());
+        result.setClassroomId(student.getClassroom().getId());
 
         return result;
     }
@@ -26,12 +25,11 @@ public class StudentMapper implements Mapper<Student, StudentDto> {
         Student result = new Student();
         result.setId(studentDto.getId());
         result.setCnp(studentDto.getCnp());
-//        result.setClassroom(studentDto.getClassroom());
-//        result.setGrades(studentDto.getGrades());
-//        result.setAddress(studentDto.getAddress());
-//        result.setAge(studentDto.getAge());
-//        result.setFirstName(studentDto.getFirstName());
-//        result.setLastName(studentDto.getLastName());
+        result.getPerson().setLastName(studentDto.getLastName());
+        result.getPerson().setFirstName(studentDto.getFirstName());
+        result.getPerson().setAge(studentDto.getAge());
+        result.getPerson().setId(studentDto.getAddressId());
+        result.getClassroom().setId(studentDto.getClassroomId());
 
         return result;
     }

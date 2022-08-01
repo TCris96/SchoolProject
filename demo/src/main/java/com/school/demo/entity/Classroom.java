@@ -14,11 +14,12 @@ public class Classroom {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "classroom")
+    private String name;
+
+    @OneToMany(mappedBy = "classroom",cascade = CascadeType.ALL)
     private List<Student> students;
 
-    @OneToOne(mappedBy = "classroom")
-    private Teacher teacher;
+
 
 
 }

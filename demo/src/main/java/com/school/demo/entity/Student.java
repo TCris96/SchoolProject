@@ -11,19 +11,18 @@ public class Student  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "student_id",nullable = false,updatable = false)
     private Long id;
 
     private String cnp;
 
-    @OneToMany(mappedBy = "student")
+    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL)
     private List<Grade> grades;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "classroom_id")
     private Classroom classroom;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private Person person;
 

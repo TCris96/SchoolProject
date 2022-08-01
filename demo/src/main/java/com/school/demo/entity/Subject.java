@@ -14,13 +14,12 @@ public class Subject {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-
     private String name;
 
-    @OneToMany(mappedBy = "subject")
+    @OneToMany(mappedBy = "subject",cascade = CascadeType.ALL)
     private List<Grade> grades;
 
-    @OneToMany(mappedBy = "subject")
+    @OneToMany(mappedBy = "subject",cascade = CascadeType.ALL)
     private Set<Teacher> teachers;
 
 

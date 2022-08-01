@@ -1,13 +1,14 @@
 package com.school.demo.dto;
 
-import com.school.demo.entity.Classroom;
 import lombok.Data;
 
 @Data
 public class TeacherDto {
 
     private Long id;
-
-    private ClassroomDto classroom;
-    private PersonDto person;
+    private String firstName;
+    private String lastName;
+    private int age;
+    private long addressId;
+    private long classroomId;
 }

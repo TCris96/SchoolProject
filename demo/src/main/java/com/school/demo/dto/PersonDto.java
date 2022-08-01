@@ -1,6 +1,5 @@
 package com.school.demo.dto;
 
-import com.school.demo.entity.Address;
 import lombok.Getter;
 import lombok.Setter;
 @Setter

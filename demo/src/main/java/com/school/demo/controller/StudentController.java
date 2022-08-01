@@ -21,8 +21,4 @@ public class StudentController {
         return studentService.getAllStudents();
     }
 
-    @PostMapping
-    public StudentDto createStudent(@RequestBody StudentDto studentDto){
-        return studentService.createStudent(studentDto);
-    }
 }

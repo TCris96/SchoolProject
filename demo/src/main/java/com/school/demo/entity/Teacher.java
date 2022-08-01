@@ -15,16 +15,16 @@ public class Teacher {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "classroom_id")
     private Classroom classroom;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "subject_id")
     private Subject subject;
 
-    @OneToOne
-    @JoinColumn
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "person_id")
     private Person person;
 
 

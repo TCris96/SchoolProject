@@ -1,7 +1,5 @@
 package com.school.demo.dto;
 
-import com.school.demo.entity.Student;
-import com.school.demo.entity.Teacher;
 import lombok.Data;
 
 import java.util.List;
@@ -10,6 +8,7 @@ import java.util.List;
 public class ClassroomDto {
 
     private Long id;
-    private List<Student> students;
-    private Teacher teacher;
+    private String name;
+    private List<StudentDto> students;
+    private TeacherDto teacher;
 }
