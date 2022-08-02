@@ -9,6 +9,7 @@ public class PersonMapper implements Mapper<Person, PersonDto> {
     @Override
     public PersonDto convertToDto(Person person) {
         PersonDto result = new PersonDto();
+
 //        result.setAddress(person.getAddress());
         result.setAge(person.getAge());
         result.setFirstName(person.getFirstName());

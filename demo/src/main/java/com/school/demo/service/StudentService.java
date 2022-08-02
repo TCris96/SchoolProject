@@ -22,6 +22,10 @@ public class StudentService {
                 .map(student -> studentMapper.convertToDto(student))
                 .collect(Collectors.toList());
     }
+    public StudentDto findById(long id){
+        Student foundedStudent = studentRepository.findById(id).orElseThrow(()->new RuntimeException("Student not found"));
+        return studentMapper.convertToDto(foundedStudent);
+    }
 
     public StudentDto createStudent(StudentDto studentDto){
         Student student = studentMapper.convertToEntity(studentDto);

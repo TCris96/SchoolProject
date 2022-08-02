@@ -8,9 +8,8 @@ import java.util.List;
 public class StudentDto{
 
     private Long id;
-    private String firstName;
-    private String lastName;
-    private int age;
+    private PersonDto personDto;
+    private Long personId;
     private long addressId;
     private String cnp;
     private long classroomId;
